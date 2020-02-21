@@ -1,0 +1,36 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #FAAC58;">
+  <a class="navbar-brand" href="#"><img src="./assets/img/jalpa1.png" width="70" height="30" alt=""> Inicio</a>
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['personas']">
+          <i class="fas fa-users" style="color:white;"></i>Personas</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['buscar']">
+          <i class="fas fa-search-plus" style="color: white;"></i>Buscar</a>
+        </li>
+            <li class="nav-item dropdown" routerLinkActive="active">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-file-alt" style="color: white;"></i>
+                Reportes
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" [routerLink]="['localidad']">Por Localidad</a>
+                <a class="dropdown-item" [routerLink]="['apoyos']">Por Apoyo</a>
+                <a class="dropdown-item" href="#">Por Area</a>
+              </div>
+            </li>
+      <li *ngIf="idRol==='1'" class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['catalogos']">
+          <i class="fas fa-cogs" style="color: white;"></i>Catalogos</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <i class="fas fa-user fa-2x mr-2" style="color: white;"></i>
+    <a class="mr-3" style="color: white;font-size: 25px;">{{nombre}}</a>
+      <button class="btn btn-outline-danger my-2 my-sm-0" (click)="salir()">Salir</button>
+    </form>
+  </div>
+</nav>

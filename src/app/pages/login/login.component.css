@@ -1,0 +1,15 @@
+
+.borde{
+  margin-top: 80px;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-width: 5px;
+  border-color: rgba(213,0,0,1);
+  border-style: groove;
+}
+.bordee{
+  margin-top: 80px;
+  margin-left: 50px;
+  margin-right: 50px;
+
+}

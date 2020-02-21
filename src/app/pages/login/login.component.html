@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row borde">
+		<div class="col-6">
+			<div class="row bordee">
+				<h1>Inicio De Sesion</h1>
+				<div class="row mt-3">
+					<form #f="ngForm" (ngSubmit)="login(f)">
+						<div class="form-group">
+							<label for="exampleInputEmail1">Usuario:</label>
+							<input type="email" class="form-control" name="user" [(ngModel)]="usuario" id="exampleInputEmail1" aria-describedby="emailHelp">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Clave:</label>
+							<input type="password" name="clave" class="form-control" [(ngModel)]="pass" id="exampleInputPassword1">
+						</div>
+						<button type="submit" class="btn btn-primary">Entrar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<img src="./assets/login/fondo1.jpg" width="485" height="500" alt="">
+		</div>
+	</div>
+</div>

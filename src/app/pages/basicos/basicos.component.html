@@ -1,0 +1,314 @@
+
+<div class="row">
+  <!--Tabla localidad-->
+  <div class="col-6">
+    <div class="card">
+      <h5 class="card-header">Localidades</h5>
+      <div class="card-body">
+        <app-loading *ngIf="loadinglocalidad"></app-loading>
+        <app-sinregistro *ngIf="!loadinglocalidad && localidad.length ===0"></app-sinregistro> 
+        <table *ngIf="!loadinglocalidad && localidad.length > 0" class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Localidad</th>
+              <th scope="col">Tools</th>
+            </tr>
+          </thead>
+          <tbody class="table-info">
+            <tr *ngFor="let localidadd of localidad; let i = index">
+            <th scope="row">{{i}}</th>
+            <td>{{localidadd.nombre}}</td>
+            <td>
+              <button class="btn btn-danger mr-1" (click)="deleteLocalidad(localidadd.idLocalidad)" type="button">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-primary" (click)="modalLocalidad()">Nuevo</button>
+      </div>
+    </div>
+  </div>
+
+  <!--Tabla Areas-->
+  <div class="col-6">
+    <div class="card">
+      <h5 class="card-header">Areas</h5>
+      <div class="card-body">
+        <app-loading *ngIf="loadingarea"></app-loading>
+        <app-sinregistro *ngIf="!loadingarea && areas.length ===0"></app-sinregistro>
+        <table *ngIf="!loadingarea && areas.length > 0" class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Area</th>
+              <th scope="col">Tools</th>
+            </tr>
+          </thead>
+          <tbody class="table-info">
+            <tr *ngFor="let areaa of areas; let i = index">
+            <th scope="row">{{i}}</th>
+            <td>{{areaa.nombre}}</td>
+            <td>
+              <button class="btn btn-danger mr-1" (click)="deleteArea(areaa.idArea)" type="button">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-primary" (click)="modalArea()">Nuevo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row top">
+  <!--Tabla cargos-->
+  <div class="col-6">
+    <div class="card">
+      <h5 class="card-header">Cargos</h5>
+      <div class="card-body">
+        <app-loading *ngIf="loadingcargo"></app-loading>
+        <app-sinregistro *ngIf="!loadingcargo && cargos.length ===0"></app-sinregistro>
+        <table *ngIf="!loadingcargo && cargos.length>0" class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Cargo</th>
+              <th scope="col">Area</th>
+              <th scope="col">Tools</th>
+
+            </tr>
+          </thead>
+          <tbody class="table-info">
+            <tr *ngFor="let cargoo of cargos; let i = index">
+            <th scope="row">{{i}}</th>
+            <td>{{cargoo.descripcion}}</td>
+            <td>{{cargoo.nombreArea}}</td>
+            <td>
+              <button class="btn btn-danger mr-1" (click)="deleteCargo(cargoo.idCargo)" type="button">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-primary" (click)="modalCargos()">Nuevo</button>
+      </div>
+    </div>
+  </div>
+
+  <!--Tabla roles-->
+  <div class="col-6">
+    <div class="card">
+      <h5 class="card-header">Roles</h5>
+      <div class="card-body">
+        <app-loading *ngIf="loadingrol"></app-loading>
+        <app-sinregistro *ngIf="!loadingrol && roles.length ===0"></app-sinregistro>
+        <table *ngIf="!loadingrol && roles.length >0" class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Rol</th>
+              <th scope="col">Tools</th>
+            </tr>
+          </thead>
+          <tbody class="table-info">
+            <tr *ngFor="let roll of roles; let i = index">
+            <th scope="row">{{i}}</th>
+            <td>{{roll.descripcion}}</td>
+            <td>
+              <button class="btn btn-danger mr-1" (click)="deleteRol(roll.idRol)" type="button">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-primary" (click)="modalRoles()">Nuevo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Tabla beneficios-->
+<div class="row top">
+  <div class="col-6">
+    <div class="card">
+      <h5 class="card-header">Beneficios</h5>
+      <div class="card-body">
+        <app-loading *ngIf="loadingbeneficio"></app-loading>
+        <app-sinregistro *ngIf="!loadingbeneficio && beneficios.length ===0"></app-sinregistro>
+        <table *ngIf="!loadingbeneficio && beneficios.length>0" class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Beneficio</th>
+              <th scope="col">Area</th>
+              <th scope="col">Tools</th>
+            </tr>
+          </thead>
+          <tbody class="table-info">
+            <tr *ngFor="let bene of beneficios; let i = index">
+            <th scope="row">{{i}}</th>
+            <td>{{bene.nombre}}</td>
+            <td>{{bene.nombreArea}}</td>
+            <td>
+              <button class="btn btn-danger mr-1" (click)="deleteBene(bene.idBeneficio)" type="button">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-primary" (click)="modalBeneficios()">Nuevo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--modal localidad-->
+<div class="modal fade" id="localidadmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Localidad</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Localidad</label>
+          <input type="text" class="form-control" name="nombre" [(ngModel)]="locali.nombre" placeholder="Nombre de la localidad">
+          <small id="emailHelp" class="form-text text-muted">Localidades de jalpa de mendez</small>
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="insertLocalidad(locali)">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--modal Area-->
+<div class="modal fade" id="areamodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Area</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Areas</label>
+          <input type="text" class="form-control" [(ngModel)]="area.nombre" name="area" placeholder="Nombre del Area">
+          <small id="emailHelp" class="form-text text-muted">Areas Del Ayuntamiento</small>
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="insertArea(area)">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--modal Cargos-->
+<div class="modal fade" id="cargomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ingresar Cargo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Cargos</label>
+          <input type="email" class="form-control" name="cargo" [(ngModel)]="cargo.descripcion" placeholder="Nombre de la cargo">
+          <small id="emailHelp" class="form-text text-muted">Ingresar Cargo Depende al area</small>
+          <select class="form-control" name="selec" [(ngModel)]="cargo.idArea">
+          <option *ngFor="let area of areas" [value]="area.idArea">{{area.nombre}}</option>
+          </select>
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="insertCargo(cargo)">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--modal roles-->
+<div class="modal fade" id="rolmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ingresar Rol</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Rol:</label>
+          <input type="email" [(ngModel)]="rol.descripcion" class="form-control" name="rol" placeholder="Nombre de la localidad">
+          <small id="emailHelp" class="form-text text-muted">Roles de Usuarios</small>
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="insertRol(rol)">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--modal beneficios--> 
+<div class="modal fade" id="beneficioomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ingresar Beneficio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Beneficio</label>
+          <input type="email" [(ngModel)]="beneficio.nombre" class="form-control" name="beneficio" placeholder="Nombre del Beneficio">
+          <small id="emailHelp" class="form-text text-muted">Beneficios Depende Al Area</small>
+          <select class="form-control" name="selec" [(ngModel)]="beneficio.idArea">
+            <option *ngFor="let area of areas" [value]="area.idArea">{{area.nombre}}</option>
+            </select>
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="insertBeneficio(beneficio)">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

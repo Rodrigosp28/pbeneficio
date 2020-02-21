@@ -1,0 +1,53 @@
+<div class="row">
+<div class="col-6">
+    <div class="card">
+        <h5 class="card-header bg-primary" style="color: white;">Nuevo Registro</h5>
+        <div class="card-body">
+            <form #f="ngForm" (ngSubmit)="guardarPersona(f)" > 
+            <h2>Ingresar Nuevo Ciudadano</h2>
+            <br>
+            <div class="form-group">
+                <label for="clavelector">Clave de Lector:</label>
+                <input type="text" name="cl" class="form-control" [(ngModel)]="persona.claveLector" id="clavelector" placeholder="Clave De Lector">
+              </div>
+              <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" class="form-control" [(ngModel)]="persona.nombre" id="nombre" placeholder="Ingresar Nombre">
+              </div>
+              <div class="form-group">
+                <label for="apepat">Apellido Paterno:</label>
+                <input type="text" name="apepat" class="form-control" [(ngModel)]="persona.apellidoPat" id="apepat" placeholder="Apellido Paterno">
+              </div>
+              <div class="form-group">
+                <label for="apemat">Apellido Materno:</label>
+                <input type="text" name="apemat" class="form-control" [(ngModel)]="persona.apellidoMat" id="apemat" placeholder="Apellido Materno">
+              </div>
+              <div class="form-group">
+                <label for="fechanac">Fecha de Nacimiento:</label>
+                <input type="text" name="fechanac" class="form-control" [(ngModel)]="persona.fechanac" id="fechanac" placeholder="DD/MM/AAAA">
+              </div>
+              <div class="form-group">
+                <label for="seccion">Seccion:</label>
+                <input type="text" name="seccion" class="form-control" [(ngModel)]="persona.seccion" id="seccion" placeholder="Seccion">
+              </div>
+              <div class="form-group">
+                <label for="localidad">Localidad:</label>
+                <select id="localidad" name="locali" class="form-control" name="selec" [(ngModel)]="persona.idLocalidad">
+                  <option *ngFor="let localidad of localidades" [value]="localidad.idLocalidad">{{localidad.nombre}}</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                <label for="Direccion">Direccion:</label>
+                <input type="text" name="direc" [(ngModel)]="persona.direccion" class="form-control" id="Direccion" placeholder="Direccion">
+              </div>
+              <button class="btn btn-success" type="submit"><i class="far fa-save"></i>Guardar</button>
+              <button class="btn btn-danger ml-5" (click)="cerrar()"><i class="far fa-window-close"></i>Cancelar</button>
+
+        </form>
+        </div>
+    </div>
+</div>
+<div class="col-6">
+<img src="./assets/login/fondo1.jpg" alt="">
+</div>
+</div> 
