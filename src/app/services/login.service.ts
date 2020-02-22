@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class Loginservice {
-  private url='http://localhost:8086/token';
+  private url='http://200.94.87.148:60102/token';
   userToken: string;
   userId: string;
   rolId: string;
@@ -69,7 +69,7 @@ export class Loginservice {
   }
 
   ObtenerUsuarioPorId(id: string){
-    const uri = 'http://localhost:14589/api/v0/Beneficios/Usuario'
+    const uri = 'http://200.94.87.148:60102/api/v0/Beneficios/Usuario'
     return this.http.get(`${uri}/${id}/ById`);
   }
 

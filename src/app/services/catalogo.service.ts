@@ -11,7 +11,7 @@ import { beneficio } from '../models/beneficio.model';
   providedIn: 'root'
 })
 export class Catalogoservice {
-  url='http://localhost:8086'
+  url='http://200.94.87.148:60102'
   constructor(public http: HttpClient){
     
   }
