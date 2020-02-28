@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { mPersona } from '../models/persona.model';
 import { mbp } from '../models/bp.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class personaservice {
-  url='http://200.94.87.148:60102'
+  url=`${environment.APIEndpoint}`;
 
   constructor(public http: HttpClient) {
   }
@@ -36,6 +37,16 @@ export class personaservice {
   getPersonasByLocalidad(id:number){
     const uri = `${this.url}/api/v0/Beneficios/Persona`;
     return this.http.get(`${uri}/${id}/ByLocalidad`);
+  }
+
+  getPersonasByArea(id:number){
+    const uri = `${this.url}/api/v0/Beneficios/Persona`;
+    return this.http.get(`${uri}/${id}/ByArea`);
+  }
+
+  getPersonasByApoyo(id:number){
+    const uri = `${this.url}/api/v0/Beneficios/Persona`;
+    return this.http.get(`${uri}/${id}/ByApoyo`);
   }
 
   deletePersona(id: number){

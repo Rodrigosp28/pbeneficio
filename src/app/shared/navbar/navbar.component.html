@@ -11,6 +11,10 @@
         <a class="nav-link" [routerLink]="['buscar']">
           <i class="fas fa-search-plus" style="color: white;"></i>Buscar</a>
         </li>
+        <li *ngIf="idRol==='1'" class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['usuarios']">
+            <i class="fas fa-users-cog" style="color: white;"></i>Usuarios</a>
+          </li>
             <li class="nav-item dropdown" routerLinkActive="active">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-file-alt" style="color: white;"></i>
@@ -19,7 +23,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" [routerLink]="['localidad']">Por Localidad</a>
                 <a class="dropdown-item" [routerLink]="['apoyos']">Por Apoyo</a>
-                <a class="dropdown-item" href="#">Por Area</a>
+                <a class="dropdown-item" [routerLink]="['area']">Por Area</a>
               </div>
             </li>
       <li *ngIf="idRol==='1'" class="nav-item" routerLinkActive="active">

@@ -1,13 +1,15 @@
 export class mUsuario{
   idUser: number;
-  Usuario: string;
-  Password: string;
+  usuario: string;
+  password: string;
   nombre: string;
   apePat: string;
   apeMat: string;
   fechaNac: string;
-  Direccion: string;
-  Ciudad: string;
+  direccion: string;
+  ciudad: string;
   idCargo: string;
   idRol: string;
+  activo: boolean;
+  nombreRol: string; 
 }

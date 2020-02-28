@@ -11,6 +11,9 @@ import { AuthGuard } from './guards/auth.guard';
 import { RolGuard } from './guards/rol.guard';
 import { ApoyosComponent } from './pages/apoyos/apoyos.component';
 import { LocalidadComponent } from './pages/localidad/localidad.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { UsuariosFormComponent } from './pages/usuarios-form/usuarios-form.component';
+import { AreaComponent } from './pages/area/area.component';
 
 const routes: Routes = [
   {
@@ -26,6 +29,10 @@ const routes: Routes = [
       { path: 'buscar', component: BuscarComponent },
       { path: 'apoyos', component: ApoyosComponent },
       { path: 'localidad', component: LocalidadComponent },
+      { path: 'area', component: AreaComponent },
+      { path: 'usuarios', component: UsuariosComponent },
+      { path: 'usuarios/nuevo', component: UsuariosFormComponent },
+      { path: 'usuarios/:id', component: UsuariosFormComponent },
       { path: '**', pathMatch:'full', redirectTo: 'personas' }
 
     ] },

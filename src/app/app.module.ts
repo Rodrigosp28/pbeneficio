@@ -18,6 +18,9 @@ import { BuscarComponent } from './pages/buscar/buscar.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ApoyosComponent } from './pages/apoyos/apoyos.component';
 import { LocalidadComponent } from './pages/localidad/localidad.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { UsuariosFormComponent } from './pages/usuarios-form/usuarios-form.component';
+import { AreaComponent } from './pages/area/area.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { LocalidadComponent } from './pages/localidad/localidad.component';
     BenepersonasComponent,
     BuscarComponent,
     ApoyosComponent,
-    LocalidadComponent
+    LocalidadComponent,
+    UsuariosComponent,
+    UsuariosFormComponent,
+    AreaComponent
   ],
   imports: [
     BrowserModule,

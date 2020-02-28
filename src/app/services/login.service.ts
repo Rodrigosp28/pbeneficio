@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { mUsuario } from '../models/usuario.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Loginservice {
-  private url='http://200.94.87.148:60102/token';
+  private url=`${environment.APIEndpoint}/token`;
   userToken: string;
   userId: string;
   rolId: string;
@@ -69,8 +71,44 @@ export class Loginservice {
   }
 
   ObtenerUsuarioPorId(id: string){
-    const uri = 'http://200.94.87.148:60102/api/v0/Beneficios/Usuario'
+    const uri = `${environment.APIEndpoint}/api/v0/Beneficios/Usuario`;
     return this.http.get(`${uri}/${id}/ById`);
+  }
+
+  ObtenerUsuarios() {
+    const uri = `${environment.APIEndpoint}/api/v0/Beneficios/Usuario`;
+    return this.http.get(uri);
+  }
+
+  activarUsuario(id:number,act: boolean) {
+    const uri = `${environment.APIEndpoint}/api/v0/Beneficios/Usuario/activar/${id}/${act}`;
+    return this.http.get(uri);
+  }
+
+  insertarUsuario(usuario: mUsuario) {
+    // console.log(usuario);
+    const uri = `${environment.APIEndpoint}/api/v0/Beneficios/Usuario`;
+    const body = {
+      // idUser: 1,
+      usuario: usuario.usuario,
+      password: usuario.password,
+      nombre: usuario.nombre,
+      apePat: usuario.apePat,
+      apeMat: usuario.apeMat,
+      fechaNac: usuario.fechaNac,
+      direccion: usuario.direccion,
+      ciudad: usuario.ciudad,
+      idCargo: usuario.idCargo,
+      idRol: usuario.idRol,
+      activo: usuario.activo
+    }
+    return this.http.post(uri,body);
+
+  }
+
+  eliminarUsuario(id: number) {
+    const uri = `${environment.APIEndpoint}/api/v0/Beneficios/Usuario/${id}`;
+    return this.http.delete(uri);
   }
 
 

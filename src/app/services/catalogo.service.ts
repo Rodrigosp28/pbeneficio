@@ -6,12 +6,13 @@ import { mArea } from '../models/area.model';
 import { mCargo } from '../models/cargo.model';
 import { mRol } from '../models/rol.model';
 import { beneficio } from '../models/beneficio.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Catalogoservice {
-  url='http://200.94.87.148:60102'
+  url=`${environment.APIEndpoint}`;
   constructor(public http: HttpClient){
     
   }
