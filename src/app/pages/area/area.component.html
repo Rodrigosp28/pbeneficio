@@ -1,1 +1,46 @@
-<p>area works!</p>
+<h2>Personas Por Area</h2>
+<br>
+<div>
+  <form [formGroup]="forma" class="form-inline" #f>
+    <div class="form-group mb-2">
+      <label for="area" class="mr-5">Seleccionar Area</label>
+      <select formControlName="farea" 
+              id="area" 
+              class="form-control" 
+              name="area" 
+              [(ngModel)]="idArea">
+      <option *ngFor="let area of areas" [value]="area.idArea">{{area.nombre}}</option>
+      </select>
+    </div>
+  </form>
+</div>
+<br>
+<div class="mt-3">
+  <app-loading *ngIf="loading"></app-loading>
+  <app-sinregistro *ngIf="!loading && personas.length===0"></app-sinregistro>
+  <table class="table" *ngIf="!loading && personas.length>0">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Clave de Lector</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Paterno</th>
+        <th scope="col">Materno</th>
+        <th scope="col">Tools</th>
+      </tr>
+    </thead>
+    <tbody class="table-info">
+      <tr *ngFor="let person of personas; let i = index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{person.claveLector}}</td>
+      <td>{{person.nombre}}</td>
+      <td>{{person.apellidoPat}}</td>
+      <td>{{person.apellidoMat}}</td>
+      <td >
+        <button class="btn btn-success" (click)="verpersona(person.idPersona)"><i class="fas fa-eye"></i>Ver</button>
+        <button *ngIf="idRol==='1'" class="btn btn-danger ml-3" (click)="eliminarpersona(person.idPersona)"><i class="fas fa-trash"></i></button>
+      </td>
+      </tr>
+    </tbody>
+    </table>
+    </div>

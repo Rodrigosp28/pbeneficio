@@ -44,7 +44,7 @@ export class LocalidadComponent implements OnInit {
     this.localidades = data.data;
     // console.log(this.localidades);
     });
-  }
+  } 
 
   verpersona(id: number){
     this.router.navigate(['log/persona',id]);
