@@ -50,9 +50,9 @@ export class UsuariosComponent implements OnInit {
     })
   }
 
-  activarmodal(id:number, act:boolean) {
+  activarmodal(id:number) {
     this.activarusuario = id;
-    this.activar=act;
+
     $('#activarmodal').modal();
   }
 
@@ -100,3 +100,4 @@ export class UsuariosComponent implements OnInit {
   }
 
 }
+ 
