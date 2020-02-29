@@ -102,9 +102,10 @@ export class BenepersonasComponent implements OnInit {
         
       }
       else {
+        console.log(data);
         Swal.fire({
           title: 'Error!',
-          text: data.Messages,
+          text: data.messages,
           icon: 'error'
         });
       }
