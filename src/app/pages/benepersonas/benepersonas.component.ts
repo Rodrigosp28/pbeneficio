@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, LOCALE_ID, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { mPersona } from 'src/app/models/persona.model';
 import { mLocalidad } from 'src/app/models/localidad.model';
@@ -8,6 +8,7 @@ import { mbp } from 'src/app/models/bp.model';
 import { beneficio } from 'src/app/models/beneficio.model';
 import Swal from 'sweetalert2';
 import * as jsPDF from 'jspdf';
+import { DatePipe, formatDate } from '@angular/common';
 declare var $: any;
 
 
@@ -31,7 +32,8 @@ export class BenepersonasComponent implements OnInit {
   nombrecomple;
   constructor(public routeractivated: ActivatedRoute,
               public catalogoservice: Catalogoservice,
-              public personaservice: personaservice) {
+              public personaservice: personaservice,
+              @Inject(LOCALE_ID) private locale: string) {
     
     this.beneficiopersona.idUser = Number(localStorage.getItem('user'));
     this.loading = true;
@@ -127,7 +129,8 @@ export class BenepersonasComponent implements OnInit {
     this.personaservice.getBeneficioPorBeneficio(id).subscribe((data: any) => {
       // console.log(data);
       this.beneficiopersona = data.data[0];
-      console.log(this.beneficiopersona);
+      this.beneficiopersona.fecha = formatDate(this.beneficiopersona.fecha,'fullDate',this.locale);
+      //console.log(this.beneficiopersona.fecha);
       this.generarpdf();
     });
     
@@ -140,6 +143,7 @@ export class BenepersonasComponent implements OnInit {
     //var lines = 'hahaha';
     var logo = new Image();
     logo.src = 'assets/esquina.jpg';
+
 
     // encabezado
     doc.addImage(logo, "JPEG", 5, 5, 200, 290);

@@ -107,7 +107,10 @@
               <option *ngFor="let bene of beneficios" [value]="bene.idBeneficio">{{bene.nombre}}</option>
               </select>
               <label for="bene">Descripcion</label>
-              <input type="email" [(ngModel)]="beneficiopersona.descripcion" class="form-control" name="beneficio" placeholder="Descripcion del Beneficio">
+              <input type="email" 
+              [(ngModel)]="beneficiopersona.descripcion" 
+              class="form-control" name="beneficio" 
+              placeholder="Descripcion del Beneficio">
               <label for="fecha">Fecha</label>
               <input type="email" disabled="disabled" [(ngModel)]="beneficiopersona.fecha" class="form-control" name="fecha" placeholder="Nombre del Beneficio">
             <small id="emailHelp" class="form-text text-muted">Beneficios Depende Al Area</small>

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { IndexComponent} from './pages/index/index.component';
@@ -21,6 +21,12 @@ import { LocalidadComponent } from './pages/localidad/localidad.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { UsuariosFormComponent } from './pages/usuarios-form/usuarios-form.component';
 import { AreaComponent } from './pages/area/area.component';
+
+// FORMATO DE FECHA
+import es from '@angular/common/locales/es';
+import { registerLocaleData} from '@angular/common';
+
+registerLocaleData(es);
 
 @NgModule({
   declarations: [
@@ -49,7 +55,7 @@ import { AreaComponent } from './pages/area/area.component';
     NgbModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide: LOCALE_ID, useValue: "es-ES"}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
