@@ -63,6 +63,7 @@ export class BenepersonasComponent implements OnInit {
 
     this.personaservice.getBeneficioPorPersona(this.persona.idPersona).subscribe((data: any) => {
       this.apoyos = data.data;
+      // console.log(this.apoyos);
       this.loading = false;
       // console.log(this.apoyos);
     });
@@ -126,11 +127,17 @@ export class BenepersonasComponent implements OnInit {
     this.personaservice.getBeneficioPorBeneficio(id).subscribe((data: any) => {
       // console.log(data);
       this.beneficiopersona = data.data[0];
+      console.log(this.beneficiopersona);
+      this.generarpdf();
     });
+    
+  }
+  generarpdf() {
     const doc = new jsPDF("p","mm","a4");
     var loremipsum = this.beneficiopersona.descripcion;
-    //var lines = doc.splitTextToSize(loremipsum, 200);
-    var lines = 'hahaha';
+    
+    var lines = doc.splitTextToSize(loremipsum, 200);
+    //var lines = 'hahaha';
     var logo = new Image();
     logo.src = 'assets/esquina.jpg';
 
@@ -141,13 +148,13 @@ export class BenepersonasComponent implements OnInit {
     doc.setFontSize(18);
     doc.text("ACTA DE ENTREGA", 60, 37);
     doc.setFontSize(18);
-    doc.text(this.beneficiopersona.nombreBeneficio, 60, 44);
+    doc.text(`Por el Area ${this.beneficiopersona.nombreArea}`, 60, 44);
     //emite
     doc.setFontSize(14);
     doc.text("Jalpa de Mendez, Tabasco", 10, 70);
     doc.setFontSize(14);
     doc.setFontStyle("bold");
-    doc.text(`ACTA No. ${id}`, 140, 55);
+    doc.text(`ACTA No. ${this.beneficiopersona.idBP.toString()}`, 140, 55);
     doc.setFontSize(14);
     doc.setFontStyle("normal");
     doc.text(`${this.beneficiopersona.fecha}`, 10, 77);
@@ -188,7 +195,7 @@ export class BenepersonasComponent implements OnInit {
     doc.text("________________________",10,235);
     doc.setFontSize(12);
     doc.text(`C. ${this.persona.nombre} ${this.persona.apellidoPat} ${this.persona.apellidoMat}`,10,242);
-    doc.text(`INE: ${this.persona.claveLector}`,10,249);
+    doc.text(`INE: ${this.persona.claveLector.toString()}`,10,249);
 
     doc.setFontSize(14);
 
@@ -198,13 +205,10 @@ export class BenepersonasComponent implements OnInit {
     doc.text("tec. Graciela de la O Pérez",130,242);
     doc.text("ATENCION CIUDADANA",130,249);
     doc.text("DIRECTORA",130,256);
-
-
-
     // doc.text(lines, 20, 20);
     // doc.text("This is courier normal.", 20, 250);
 
-    doc.save(`${this.persona.nombre}_${this.beneficiopersona.fecha}.pdf`);
+    doc.save(`apoyo.pdf`);
   }
 
 }
