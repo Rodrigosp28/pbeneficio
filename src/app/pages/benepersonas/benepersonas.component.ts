@@ -155,13 +155,13 @@ export class BenepersonasComponent implements OnInit {
     doc.text(`Por el Area ${this.beneficiopersona.nombreArea}`, 60, 44);
     //emite
     doc.setFontSize(14);
-    doc.text("Jalpa de Mendez, Tabasco", 10, 70);
+    doc.text("Jalpa de Mendez, Tabasco", 130, 70);
     doc.setFontSize(14);
     doc.setFontStyle("bold");
     doc.text(`ACTA No. ${this.beneficiopersona.idBP.toString()}`, 140, 55);
     doc.setFontSize(14);
     doc.setFontStyle("normal");
-    doc.text(`${this.beneficiopersona.fecha}`, 10, 77);
+    doc.text(`${this.beneficiopersona.fecha}`, 125, 77);
     doc.setFontSize(14);
     doc.text("Direccion de atencion ciudadana", 10, 83);
     doc.setFontSize(14);
