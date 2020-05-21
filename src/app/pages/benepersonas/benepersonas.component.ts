@@ -129,7 +129,8 @@ export class BenepersonasComponent implements OnInit {
     });
     const doc = new jsPDF("p","mm","a4");
     var loremipsum = this.beneficiopersona.descripcion;
-    var lines = doc.splitTextToSize(loremipsum, 200) 
+    //var lines = doc.splitTextToSize(loremipsum, 200);
+    var lines = 'hahaha';
     var logo = new Image();
     logo.src = 'assets/esquina.jpg';
 
