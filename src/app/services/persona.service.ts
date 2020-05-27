@@ -78,7 +78,8 @@ export class personaservice {
       idBeneficio: bp.idBeneficio,
       Descripcion:bp.descripcion,
       fecha: bp.fecha,
-      idUser: bp.idUser
+      idUser: bp.idUser,
+      cantidad: bp.cantidad
     };
     return this.http.post(uri,body);
   }

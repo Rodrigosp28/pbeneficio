@@ -113,7 +113,12 @@
               placeholder="Descripcion del Beneficio">
               <label for="fecha">Fecha</label>
               <input type="email" disabled="disabled" [(ngModel)]="beneficiopersona.fecha" class="form-control" name="fecha" placeholder="Nombre del Beneficio">
-            <small id="emailHelp" class="form-text text-muted">Beneficios Depende Al Area</small>
+              <label for="cantidad">Cantidad entregada</label>
+              <input type="number" 
+              [(ngModel)]="beneficiopersona.cantidad" 
+              class="form-control" name="cantidad" 
+              placeholder="Cantidad Entregada">
+            <small id="emailHelp" class="form-text text-muted">Agregar cantidad en caso de apoyo economico</small>
           </div>
         </form>
         </div>

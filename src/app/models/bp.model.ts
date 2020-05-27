@@ -7,4 +7,5 @@ fecha: string;
 idUser: number;
 nombreBeneficio:string;
 nombreArea: string;
+cantidad:number;
 }
